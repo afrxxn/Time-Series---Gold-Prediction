@@ -22,13 +22,11 @@ st.write(df)
 
 
 # load the model from disk
-loaded_model = load(open('Gold ', 'rb'))
+loaded_model = load(open('Gold Prediction.py ', 'rb'))
 
-prediction = loaded_model.predict(df)
-prediction_proba = loaded_model.predict_proba(df)
+prediction = loaded_model.fitted_model(data)
+prediction_proba = loaded_model.test_predictions(data)
 
-st.subheader('Predicted Result')
-st.write('Yes' if prediction_proba[0][1] > 0.5 else 'No')
 
 st.subheader('Prediction Probability')
 st.write(prediction_proba)
